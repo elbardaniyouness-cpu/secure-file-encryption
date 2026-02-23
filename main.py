@@ -33,11 +33,11 @@ def decrypt(file_path: str | None = None):
         except (FileNotFoundError, ValueError) as exc:
             print(f"[ERROR] {exc}", file=sys.stderr)
             raise SystemExit(1) from exc
-        except EncryptionError as exc:
-            print(f"[ERROR] {exc}", file=sys.stderr)
-            retry = input("Wrong password or invalid data. Try again? (y/n): ").strip().lower()
-            if retry != "y":
-                raise SystemExit(1) from exc
+        except KeyboardInterrupt:
+            print("\n[INFO] Decryption cancelled.")
+            raise SystemExit(1)
+        except EncryptionError:
+            print("[ERROR] Wrong password. Please try again.", file=sys.stderr)
 
 
 def main():
