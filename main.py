@@ -35,7 +35,7 @@ def decrypt(file_path: str | None = None):
             raise SystemExit(1) from exc
         except KeyboardInterrupt:
             print("\n[INFO] Decryption cancelled.")
-            raise SystemExit(1)
+            raise SystemExit(1) from None
         except EncryptionError:
             print("[ERROR] Wrong password. Please try again.", file=sys.stderr)
 

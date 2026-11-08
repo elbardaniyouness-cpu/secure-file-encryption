@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from pathlib import Path
 import os
+from pathlib import Path
 
 from cryptography.exceptions import InvalidSignature
 from cryptography.hazmat.primitives import hashes, padding
